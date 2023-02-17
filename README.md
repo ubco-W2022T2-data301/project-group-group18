@@ -18,7 +18,7 @@ Details for Milestone are available on Canvas (left sidebar, Course Project).
 
 - Julie Flament: I'm french but I currently live in California! 
 - Aarav Gosalia: I'm brown and I'm doing data science, quite unique!
-- Oluwadabira Omotoso: one sentence about you!
+- Oluwadabira Omotoso: I'm a second year computer science major
 
 ## Images
 

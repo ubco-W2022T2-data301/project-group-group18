@@ -16,3 +16,15 @@ def data_processing(url):
     )
     
     return data_processed
+
+def plotting(data):
+    counts = data.country.value_counts()
+    data = data[data.country.isin(counts.index[counts.gt(2)])]
+    regions = data.region_group.unique()
+    dictionary = {}
+    for i in range(6):
+        df = data.loc[data["region_group"]==regions[i]]
+        dictionary[i] = df
+    
+    return dictionary
+

@@ -22,8 +22,8 @@ def plotting(data):
     data = data[data.country.isin(counts.index[counts.gt(2)])]
     regions = data.region_group.unique()
     dictionary = {}
-    for i in range(6):
-        df = data.loc[data["region_group"]==regions[i]]
+    for i in regions:
+        df = data.loc[data["region_group"]==i]
         dictionary[i] = df
     
     return dictionary

@@ -41,7 +41,7 @@ def boxplot_LoSec(dataset):
 
 def boxplot_Pri(dataset):
     plot = (
-        sns.boxplot(data=dataset2, y="income_group", x="comp_prim_v2_m")
+        sns.boxplot(data=dataset, y="income_group", x="comp_prim_v2_m")
         .set(title = "% of People who Completed Primary School Based on Different Income Groups", xlabel = "% of People who Completed Primary School", ylabel = "Income Groups")
     )
     return
@@ -49,7 +49,7 @@ def boxplot_Pri(dataset):
 #make violinplots
 def violinplot(dataset):
     plot = (
-        sns.violinplot(data=dataset2, x="literacy_1524_m", y="income_group", hue="Sex", split=True)
+        sns.violinplot(data=dataset, x="literacy_1524_m", y="income_group", hue="Sex", split=True)
         .set(title = "Literacy Rates (Ages 15-25) Across Different Income Groups Based on Sex", xlabel = "Literacy Rates (Ages 15-24)", ylabel = "Income Groups")
     )
     return

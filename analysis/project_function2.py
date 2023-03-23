@@ -22,7 +22,7 @@ def barplot(dataset):
     #sns.move_legend(plot, bbox_to_anchor=(1.5, 1), loc = "upper right")
     #plot.legend(bbox_to_anchor=(2, 1))
     )
-        return
+    return
 
 #make boxplots
 def boxplot_UpSec(dataset):

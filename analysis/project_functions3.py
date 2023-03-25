@@ -17,6 +17,7 @@ def load_and_process(url_or_path_to_csv_file,dtype):
     df = (data
           .drop(data.iloc[:,62:a],axis=1)
           .drop(data.iloc[:,37:44],axis=1)
+          .dropna(subset=['Sex'])
          )
     return df
 
@@ -46,10 +47,11 @@ def wrangling2(df):
     male_df = df[df['Sex'] == 'Male'].rename(columns={'literacy_1524_m': 'male'}).dropna(subset=['Religion','male'])
     female_df = df[df['Sex'] == 'Female'].rename(columns={'literacy_1524_m': 'female'}).dropna(subset=['Religion','female'])
 
-    result_df = pd.merge(male_df[['Religion','male']], female_df[['Religion','female']], how='outer', on='Religion').dropna()
-
-
-    result_df = result_df.groupby('Religion').filter(lambda x: x['male'].nunique() > 1 and x['female'].nunique() > 1)
+    result_df = (pd.merge(male_df[['Religion','male']], female_df[['Religion','female']], how='outer', on='Religion')
+                 .dropna()
+                 .groupby('Religion')
+                 .filter(lambda x: x['male'].nunique() > 1 and x['female'].nunique() > 1)
+                )
     return result_df
 
 def religion(result_df):
@@ -76,8 +78,41 @@ def bar(pivot):
     ax.legend(title="Gender")
     # plt.savefig('plot1.png',bbox_inches = 'tight')
     plt.show()
+
+
+def stackedbar(a):
+    #creating space for the number of quintile graphs
+    fig, ax = plt.subplots(3, 2, figsize=(12, 12))
     
+    #creating a stacked bar chart for each quintile
+    for i, quintile in enumerate(sorted(a['Wealth'].unique())):
+        # filter the data to only include the current quintile
+        quintile_data = a[a['Wealth'] == quintile]
     
+        # group the data by year and sex, and calculate the mean literacy rate
+        grouped_data = quintile_data.groupby(['year', 'Sex'])['literacy_1524_m'].mean().unstack()
+    
+        # create the stacked area chart
+        ax[i // 2, i % 2].stackplot(grouped_data.index, grouped_data.values.T, labels=grouped_data.columns,colors=['#eb4d4b','#686de0'])
+        # grouped_data.plot.area(ax=ax[i], stacked=True)
+    
+        # set the title and axis labels
+        ax[i // 2, i % 2].set_title(f'{quintile}')
+        ax[i // 2, i % 2].set_xlabel('Year')
+        ax[i // 2, i % 2].set_ylabel('Literacy Rate')
+    
+        # set the x axis limits
+        ax[i // 2, i % 2].set_xlim([a['year'].min(), a['year'].max()])
+    
+        # add a legend
+        ax[i // 2, i % 2].legend(title='Sex')
+
+    # adjust the layout of the subplots
+    fig.tight_layout()
+
+    # show the plot
+    plt.show()
+
 def style_polar_axis(ax):
     # Change the initial location of the 0 in radians
     ax.set_theta_offset(np.pi / 2)

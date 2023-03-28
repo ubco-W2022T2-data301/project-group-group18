@@ -62,12 +62,12 @@ def more_processing(dictionary):
 def barplot1(data):
     plot = sns.barplot(data = data, x="country", y="percentage change", width = 1)
     plot.set(title= "Percentage change in Literacy Rates between first and last record", yticks= np.arange(-100,3500,150))
-    plot.set_xticklabels(data_plot1.country,rotation=90);
+    plot.set_xticklabels(data.country,rotation=90);
     plot.axhline(color="black");
     return
 
 def barplot2(data):
-    plot = sns.barplot(data = data_plot2, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
+    plot = sns.barplot(data = data, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
     plot.set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage change", title = "Average Percentage change of Literacy rates of different regions");
     plot.axhline(color="black");
     return

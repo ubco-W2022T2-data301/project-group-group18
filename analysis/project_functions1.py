@@ -47,7 +47,7 @@ def more_processing(dictionary):
     data_plot1 = pd.DataFrame()
     data_plot2 = pd.DataFrame()
     for i in range(6):
-    list(dictionary.values())[i].reset_index(drop = True, inplace = True)
+        list(dictionary.values())[i].reset_index(drop = True, inplace = True)
         first_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'min','literacy_rates': 'first',"region_group" : 'first'})
         last_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'max','literacy_rates': 'last',"region_group" : 'first'})
         plot_values = first_values[["country"]]

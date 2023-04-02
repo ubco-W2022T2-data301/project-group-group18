@@ -105,7 +105,7 @@ def stackedbar(a):
     
         # add a legend
         ax[i // 2, i % 2].legend(title='Sex')
-
+    ax[2,1].remove()
     # adjust the layout of the subplots
     fig.tight_layout()
     fig.suptitle("Analysis of Wealth and Literacy Rate over the years")

@@ -59,10 +59,10 @@ def more_processing(dictionary):
         max_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'first','literacy_rates': 'max',"region_group" : 'first'})
         plot_values = first_values[["country"]]
         plot_values["percentage change"] = (last_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
-        plot_values2.reset_index(drop = True, inplace = True)
+        plot_values.reset_index(drop = True, inplace = True)
         plot_values2 = first_values[["country"]]
         plot_values2["percentage change"] = (max_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
-        plot_values.reset_index(drop = True, inplace = True)
+        plot_values2.reset_index(drop = True, inplace = True)
         temp = pd.DataFrame([[list(dictionary.keys())[i],plot_values["percentage change"].mean()]], columns = ["region_group","Average percentage change"])
         data_plot1 = pd.concat([data_plot1,plot_values],join="outer")
         data_plot2 = pd.concat([data_plot2,plot_values2],join="outer")

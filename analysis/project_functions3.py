@@ -53,6 +53,19 @@ def wrangling2(df):
                 )
     return result_df
 
+def plot_religion(df):
+    df=df.dropna(subset=['Religion','literacy_1524_m'])
+    plt.figure()
+    ax,fig = joyplot(data=df[['Religion','literacy_1524_m']],
+            by=df['Religion'],
+            column=['literacy_1524_m'],
+            alpha = 0.85,
+            figsize=(12,20))
+    plt.rc('axes', labelsize=16)
+    plt.title('Literacy Rate among certain Religions',fontsize=20)
+    plt.xlabel("Literacy Rate")
+    plt.show()
+    
 def religion(result_df):
     plt.figure()
     ax,fig = joyplot(data=result_df[['Male','Female','Religion']],

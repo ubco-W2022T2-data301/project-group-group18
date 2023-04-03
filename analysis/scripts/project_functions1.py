@@ -51,24 +51,35 @@ def lineplot(dictionary):
 def more_processing(dictionary):
     data_plot1 = pd.DataFrame()
     data_plot2 = pd.DataFrame()
+    data_plot3 = pd.DataFrame()
     for i in range(6):
         list(dictionary.values())[i].reset_index(drop = True, inplace = True)
         first_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'min','literacy_rates': 'first',"region_group" : 'first'})
         last_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'max','literacy_rates': 'last',"region_group" : 'first'})
+        max_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'first','literacy_rates': 'max',"region_group" : 'first'})
         plot_values = first_values[["country"]]
         plot_values["percentage change"] = (last_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
+        plot_values2.reset_index(drop = True, inplace = True)
+        plot_values2 = first_values[["country"]]
+        plot_values2["percentage change"] = (max_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
         plot_values.reset_index(drop = True, inplace = True)
         temp = pd.DataFrame([[list(dictionary.keys())[i],plot_values["percentage change"].mean()]], columns = ["region_group","Average percentage change"])
         data_plot1 = pd.concat([data_plot1,plot_values],join="outer")
-        data_plot2 = pd.concat([data_plot2,temp],join="outer")
+        data_plot2 = pd.concat([data_plot2,plot_values2],join="outer")
+        data_plot3 = pd.concat([data_plot3,temp],join="outer")
         
-    return data_plot1, data_plot2
+    return data_plot1, data_plot2, data_plot3
 
 #Plots a bar chart of percentage change of literacy rates in each country
-def barplot1(data):
-    plot = sns.barplot(data = data, x="percentage change", y="country", width = 1)
-    plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
-    plot.axvline(color="black");
+def barplot1(data1,data2):
+    fig, axes = plt.subplots(1, 2, figsize=(10,5))
+    sns.barplot(ax=axes[0],data = data1, x="percentage change", y="country", width = 1)
+    axes[0].set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
+    axes[0].axvline(color="black");
+    sns.barplot(ax=axes[1],data = data2, x="percentage change", y="country", width = 1)
+    axes[1].set(title= "Percentage change in Literacy Rates between first and max record", xticks= np.arange(-200,3800,400))
+    axes[1].axvline(color="black");
+    
     return
 
 #Plots a bar chart of average percentage change in literacy rates of each region

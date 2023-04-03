@@ -19,7 +19,7 @@ def barplot(dataset):
     
     plot = (
         sns.barplot(data = dataset, y = dataset["region_group"], hue = dataset["income_group"], x = dataset["literacy_1524_m"])
-    .set( title = "Literacy Rates compared to Income Groups", xlabel = "Literacy Rates Ages 15-24", ylabel = "Regions")
+    .set( title = "Literacy Rates compared to Income Groups", xlabel = "Literacy Rates Ages 15-24", ylabel = "")
     #sns.move_legend(plot, bbox_to_anchor=(1.5, 1), loc = "upper right")
     )
     plt.legend(bbox_to_anchor=[2, 1], loc = "upper right")

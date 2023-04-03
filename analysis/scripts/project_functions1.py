@@ -28,6 +28,7 @@ def data_processing(url):
 def plotting(data):
     counts = data.country.value_counts()
     data = data[data.country.isin(counts.index[counts.gt(2)])]
+    #save this dataframe as excel file for tableu
     regions = data.region_group.unique()
     dictionary = {}
     for i in regions:

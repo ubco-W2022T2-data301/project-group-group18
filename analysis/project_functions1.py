@@ -36,8 +36,7 @@ def lineplot(dictionary):
     for i in range(6):
         grid = sns.FacetGrid(list(dictionary.values())[i], col="country", hue="country", palette="tab20c", col_wrap=5, height=2.5)
         grid.map(plt.plot, "year", "literacy_rates", marker="o")
-        grid.set(xticks=np.arange(1998,2017))
-        grid.set_xticklabels(np.arange(1998,2017), rotation=90)
+        grid.set(xticks=np.arange(1997,2017,5))
         grid.fig.subplots_adjust(top=0.8)
         grid.fig.suptitle(list(dictionary.keys())[i])
         
@@ -60,9 +59,8 @@ def more_processing(dictionary):
     return data_plot1, data_plot2
 
 def barplot1(data):
-    plot = sns.barplot(data = data, x="country", y="percentage change", width = 1)
-    plot.set(title= "Percentage change in Literacy Rates between first and last record", yticks= np.arange(-100,3500,150))
-    plot.set_xticklabels(data.country,rotation=90);
+    plot = sns.barplot(data = data, x="percentage change", y="country", width = 1)
+    plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-100,3500,150))
     plot.axhline(color="black");
     return
 

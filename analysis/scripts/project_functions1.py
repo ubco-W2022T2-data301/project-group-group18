@@ -36,7 +36,7 @@ def plotting(data):
     
     return dictionary
 
-#
+#creates line graphs for each country in each region based dataframe to compare literacy rates over time
 def lineplot(dictionary):
     for i in range(6):
         grid = sns.FacetGrid(list(dictionary.values())[i], col="country", hue="country", palette="tab20c", col_wrap=5, height=2.5)
@@ -46,7 +46,7 @@ def lineplot(dictionary):
         grid.fig.suptitle(list(dictionary.keys())[i])
         
     return
-
+#creates and returns two dataframes, the first being all the countries and the percentage change in literacy rates, and the second being the average change in literacy rates of each region based on the countries in that region
 def more_processing(dictionary):
     data_plot1 = pd.DataFrame()
     data_plot2 = pd.DataFrame()
@@ -63,12 +63,14 @@ def more_processing(dictionary):
         
     return data_plot1, data_plot2
 
+#Plots a bar chart of percentage change of literacy rates in each country
 def barplot1(data):
     plot = sns.barplot(data = data, x="percentage change", y="country", width = 1)
     plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
     plot.axvline(color="black");
     return
 
+#Plots a bar chart of average percentage change in literacy rates of each region
 def barplot2(data):
     plot = sns.barplot(data = data, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
     plot.set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage change", title = "Average Percentage change of Literacy rates of different regions");

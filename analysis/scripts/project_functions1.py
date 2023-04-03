@@ -76,12 +76,11 @@ def more_processing(dictionary):
 
 #Plots a bar chart of percentage change of literacy rates in each country
 def barplot1(data1,data2):
-    fig, axes = plt.subplots(1, 2, figsize=(9,5))
+    fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
+    fig.suptitle("Percentage Change in Literacy Rates Between First and Last/Max Record")
     sns.barplot(ax=axes[0],data = data1, x="percentage change", y="country", width = 1)
-    axes[0].set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
     axes[0].axvline(color="black");
     sns.barplot(ax=axes[1],data = data2, x="percentage change", y="country", width = 1)
-    axes[1].set(title= "Percentage change in Literacy Rates between first and max record", xticks= np.arange(-200,3800,400))
     axes[1].axvline(color="black");
     
     return
@@ -90,10 +89,10 @@ def barplot1(data1,data2):
 def barplot2(data1,data2):
     fig, axes = plt.subplots(1, 2, figsize=(9,5))
     sns.barplot(ax=axes[0], data = data1, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
-    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage change", title = "Average Percentage change of Literacy rates of different regions");
+    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Average Percentage Change of Literacy rates of Different Regions");
     axes[0].axhline(color="black");
     sns.barplot(ax=axes[1], data = data2, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
-    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage change", title = "Average Percentage change of Literacy rates of different regions");
+    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Average Percentage Change of Literacy rates of Different Regions");
     axes[1].axhline(color="black");
     return
     

@@ -1,9 +1,12 @@
+#importing necessary packages and making changes to packages
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 pd.options.mode.chained_assignment = None 
 sns.set_theme(style="ticks", font_scale=0.8)
+
+#Basic data processing to only select required columns from dataset, drop NA values and reset index
 def data_processing(url):
     data = (
         pd.read_csv(url,low_memory=False)
@@ -21,6 +24,7 @@ def data_processing(url):
     
     return data_processed
 
+#creates a returns dictionary of dataset based on region group and in each dataset are countries with 3 or more years of entries
 def plotting(data):
     counts = data.country.value_counts()
     data = data[data.country.isin(counts.index[counts.gt(2)])]
@@ -32,6 +36,7 @@ def plotting(data):
     
     return dictionary
 
+#
 def lineplot(dictionary):
     for i in range(6):
         grid = sns.FacetGrid(list(dictionary.values())[i], col="country", hue="country", palette="tab20c", col_wrap=5, height=2.5)

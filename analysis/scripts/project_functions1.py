@@ -1,9 +1,12 @@
+#importing necessary packages and making changes to packages
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 pd.options.mode.chained_assignment = None 
 sns.set_theme(style="ticks", font_scale=0.8)
+
+#Basic data processing to only select required columns from dataset, drop NA values and reset index
 def data_processing(url):
     data = (
         pd.read_csv(url,low_memory=False)
@@ -21,9 +24,11 @@ def data_processing(url):
     
     return data_processed
 
+#creates a returns dictionary of dataset based on region group and in each dataset are countries with 3 or more years of entries
 def plotting(data):
     counts = data.country.value_counts()
     data = data[data.country.isin(counts.index[counts.gt(2)])]
+    #save this dataframe as excel file for tableu
     regions = data.region_group.unique()
     dictionary = {}
     for i in regions:
@@ -32,17 +37,17 @@ def plotting(data):
     
     return dictionary
 
+#creates line graphs for each country in each region based dataframe to compare literacy rates over time
 def lineplot(dictionary):
     for i in range(6):
         grid = sns.FacetGrid(list(dictionary.values())[i], col="country", hue="country", palette="tab20c", col_wrap=5, height=2.5)
         grid.map(plt.plot, "year", "literacy_rates", marker="o")
-        grid.set(xticks=np.arange(1998,2017))
-        grid.set_xticklabels(np.arange(1998,2017), rotation=90)
+        grid.set(xticks=np.arange(1997,2017,5))
         grid.fig.subplots_adjust(top=0.8)
         grid.fig.suptitle(list(dictionary.keys())[i])
         
     return
-
+#creates and returns two dataframes, the first being all the countries and the percentage change in literacy rates, and the second being the average change in literacy rates of each region based on the countries in that region
 def more_processing(dictionary):
     data_plot1 = pd.DataFrame()
     data_plot2 = pd.DataFrame()
@@ -59,13 +64,14 @@ def more_processing(dictionary):
         
     return data_plot1, data_plot2
 
+#Plots a bar chart of percentage change of literacy rates in each country
 def barplot1(data):
-    plot = sns.barplot(data = data, x="country", y="percentage change", width = 1)
-    plot.set(title= "Percentage change in Literacy Rates between first and last record", yticks= np.arange(-100,3500,150))
-    plot.set_xticklabels(data.country,rotation=90);
-    plot.axhline(color="black");
+    plot = sns.barplot(data = data, x="percentage change", y="country", width = 1)
+    plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
+    plot.axvline(color="black");
     return
 
+#Plots a bar chart of average percentage change in literacy rates of each region
 def barplot2(data):
     plot = sns.barplot(data = data, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
     plot.set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage change", title = "Average Percentage change of Literacy rates of different regions");

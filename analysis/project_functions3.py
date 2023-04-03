@@ -18,6 +18,7 @@ def load_and_process(url_or_path_to_csv_file,dtype):
           .drop(data.iloc[:,62:a],axis=1)
           .drop(data.iloc[:,37:44],axis=1)
           .dropna(subset=['Sex'])
+          .reset_index(drop=True)
          )
     return df
 
@@ -25,7 +26,7 @@ def region(df):
     f, axes = plt.subplots(ncols=3,sharex='col', sharey='row')
     plt.rcParams["figure.figsize"] = [10.00,10.00]
     plt.rc('axes', labelsize=10)
-    # plt.title("Region vs Gender who completed all levels of education(Higher Secondary)",loc='center')
+    plt.title("Gender Disparities in Literacy Rates across Different Regions and Education Levels",loc='right',fontsize=20)
     my_pal = {sex: '#eb4d4b' if sex == "Female" else '#686de0' for sex in df["Sex"].unique()}
     sns.violinplot(x=df['comp_prim_v2_m'],y=df['region_group'].sort_values(),hue=df['Sex'],ax=axes[0],palette=my_pal)
     sns.violinplot(x=df['comp_lowsec_v2_m'],y=df['region_group'].sort_values(),hue=df['Sex'],ax=axes[1],palette=my_pal)
@@ -33,7 +34,7 @@ def region(df):
     axes[0].get_legend().remove()
     axes[1].get_legend().remove()
     axes[2].legend(bbox_to_anchor=[1,0.9],loc='upper left',title='Sex')
-    axes[0].set(ylabel='Region',xlabel="Completed primary")
+    axes[0].set(ylabel=None,xlabel="Completed primary")
     axes[1].set(ylabel=None,xlabel="Completed lower secondary")
     axes[2].set(ylabel=None,xlabel="Completed upper secondary")
 
@@ -41,40 +42,51 @@ def region(df):
     sns.despine(trim=True, left=True)
     
 def wrangling2(df):
-    male_df = df[df['Sex'] == 'Male'][['literacy_1524_m', 'Religion']]
-    female_df = df[df['Sex'] == 'Female'][['literacy_1524_m', 'Religion']]
-
-    male_df = df[df['Sex'] == 'Male'].rename(columns={'literacy_1524_m': 'male'}).dropna(subset=['Religion','male'])
-    female_df = df[df['Sex'] == 'Female'].rename(columns={'literacy_1524_m': 'female'}).dropna(subset=['Religion','female'])
-
-    result_df = (pd.merge(male_df[['Religion','male']], female_df[['Religion','female']], how='outer', on='Religion')
-                 .dropna()
-                 .groupby('Religion')
-                 .filter(lambda x: x['male'].nunique() > 1 and x['female'].nunique() > 1)
+    result_df = (df[df['Sex'] == 'Male'][['literacy_1524_m', 'Religion']].rename(columns={'literacy_1524_m': 'Male'})
+             .dropna(subset=['Religion','Male'])
+             .merge(df[df['Sex'] == 'Female'][['literacy_1524_m', 'Religion']].rename(columns={'literacy_1524_m': 'Female'})
+                    .dropna(subset=['Religion','Female']),how='outer', on='Religion')
+             .dropna()
+             .groupby('Religion')
+             .filter(lambda x: x['Male'].nunique() > 1 and x['Female'].nunique() > 1)
+             .reindex(columns=['Religion','Male','Female'])
                 )
     return result_df
 
+def plot_religion(df):
+    df=df.dropna(subset=['Religion','literacy_1524_m'])
+    plt.figure()
+    ax,fig = joyplot(data=df[['Religion','literacy_1524_m']],
+            by=df['Religion'],
+            column=['literacy_1524_m'],
+            alpha = 0.85,
+            figsize=(12,20))
+    plt.rc('axes', labelsize=16)
+    plt.title('Literacy Rate among certain Religions',fontsize=20)
+    plt.xlabel("Literacy Rate")
+    plt.show()
+    
 def religion(result_df):
     plt.figure()
-    ax,fig = joyplot(data=result_df[['male','female','Religion']],
+    ax,fig = joyplot(data=result_df[['Male','Female','Religion']],
             by=result_df['Religion'],
-            column=['male','female'],
+            column=['Male','Female'],
             color=['#686de0','#eb4d4b'], 
             legend=True,
             alpha = 0.85,
-            figsize=(12,8)
+            figsize=(12,15)
                 )
     plt.rc('axes', labelsize=16)
-    plt.title('Literacy Rate among Genders of certain Religions')
+    plt.title('Literacy Rate among Genders of certain Religions',fontsize=20)
     plt.xlabel("Literacy Rate")
     plt.show()
     
 def bar(pivot):
     fig, ax = plt.subplots()
-    pivot.plot(kind="bar", width=0.8, color=['#eb4d4b','#686de0'], ax=ax)
+    pivot.plot(kind="barh", width=0.8, color=['#eb4d4b','#686de0'], ax=ax)
     ax.set_title("Literacy Rate by Wealth and Gender")
-    ax.set_xlabel("Wealth")
-    ax.set_ylabel("Literacy Rate")
+    ax.set_xlabel("Literacy Rate")
+    ax.set_ylabel("Wealth")
     ax.legend(title="Gender")
     # plt.savefig('plot1.png',bbox_inches = 'tight')
     plt.show()
@@ -106,11 +118,12 @@ def stackedbar(a):
     
         # add a legend
         ax[i // 2, i % 2].legend(title='Sex')
-
+    ax[2,1].remove()
     # adjust the layout of the subplots
     fig.tight_layout()
-
+    fig.suptitle("Analysis of Wealth and Literacy Rate over the years")
     # show the plot
+    plt.tight_layout()
     plt.show()
 
 def style_polar_axis(ax):

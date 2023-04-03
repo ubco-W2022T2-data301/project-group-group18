@@ -60,8 +60,8 @@ def more_processing(dictionary):
 
 def barplot1(data):
     plot = sns.barplot(data = data, x="percentage change", y="country", width = 1)
-    plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-100,3500,150))
-    plot.axhline(color="black");
+    plot.set(title= "Percentage change in Literacy Rates between first and last record", xticks= np.arange(-200,3800,400))
+    plot.axvline(color="black");
     return
 
 def barplot2(data):

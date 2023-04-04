@@ -12,6 +12,7 @@ def set_data(path):
         .reset_index()
         .drop(columns = ["index"])
     )
+    data.to_csv("../data/processed/data2.csv")
     return data
 
 

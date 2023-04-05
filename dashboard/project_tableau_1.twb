@@ -731,8 +731,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='1350' minheight='1350' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='20' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98120' id='19' param='vert' type-v2='layout-flow' w='99034' x='483' y='940'>
+            <zone h='100000' id='22' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98120' id='21' param='vert' type-v2='layout-flow' w='99034' x='483' y='940'>
                 <zone h='8226' id='15' type-v2='text' w='39762' x='29618' y='1410'>
                   <formatted-text>
                     <run bold='true' fontcolor='#000000' fontname='Footlight MT Light' fontsize='20'>Literacy Rates in regard to different regions</run>
@@ -976,7 +976,7 @@
         <viewpoint name='Sheet 3' />
         <viewpoint name='Sheet 4' />
       </viewpoints>
-      <active id='14' />
+      <active id='-1' />
       <simple-id uuid='{C7AC41FE-80CD-4F39-B740-E78EE723DAA1}' />
     </window>
   </windows>

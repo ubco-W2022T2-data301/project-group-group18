@@ -1,0 +1,105 @@
+country,year,country,year,literacy_rates,region_group
+Armenia,2000.0,Armenia,2000.0,94677.0,Northern Africa and Western Asia
+Armenia,2005.0,Armenia,2005.0,63973.0,Northern Africa and Western Asia
+Armenia,2010.0,Armenia,2010.0,59723.0,Northern Africa and Western Asia
+Bangladesh,2000.0,Bangladesh,2000.0,25692.0,Central and Southern Asia
+Bangladesh,2006.0,Bangladesh,2006.0,527885.0,Central and Southern Asia
+Bangladesh,2007.0,Bangladesh,2007.0,96534.0,Central and Southern Asia
+Bangladesh,2011.0,Bangladesh,2011.0,159156.0,Central and Southern Asia
+Bangladesh,2013.0,Bangladesh,2013.0,839365.0,Central and Southern Asia
+Bangladesh,2014.0,Bangladesh,2014.0,108672.0,Central and Southern Asia
+Benin,2001.0,Benin,2001.0,31638.0,Sub-Saharan Africa
+Benin,2006.0,Benin,2006.0,112512.0,Sub-Saharan Africa
+Benin,2012.0,Benin,2012.0,139744.0,Sub-Saharan Africa
+Burkina Faso,2003.0,Burkina Faso,2003.0,108917.0,Sub-Saharan Africa
+Burkina Faso,2006.0,Burkina Faso,2006.0,7799.0,Sub-Saharan Africa
+Burkina Faso,2010.0,Burkina Faso,2010.0,153868.0,Sub-Saharan Africa
+Cambodia,2000.0,Cambodia,2000.0,15588.0,Eastern and South-eastern Asia
+Cambodia,2005.0,Cambodia,2005.0,111380.0,Eastern and South-eastern Asia
+Cambodia,2010.0,Cambodia,2010.0,174702.0,Eastern and South-eastern Asia
+Cambodia,2014.0,Cambodia,2014.0,144974.0,Eastern and South-eastern Asia
+Cameroon,2004.0,Cameroon,2004.0,123560.0,Sub-Saharan Africa
+Cameroon,2006.0,Cameroon,2006.0,52298.0,Sub-Saharan Africa
+Cameroon,2011.0,Cameroon,2011.0,171214.0,Sub-Saharan Africa
+Cameroon,2014.0,Cameroon,2014.0,38008.0,Sub-Saharan Africa
+Chad,2004.0,Chad,2004.0,49828.0,Sub-Saharan Africa
+Chad,2010.0,Chad,2010.0,65038.0,Sub-Saharan Africa
+Chad,2015.0,Chad,2015.0,110345.0,Sub-Saharan Africa
+Colombia,2000.0,Colombia,2000.0,15828.0,Latin America and the Caribbean
+Colombia,2005.0,Colombia,2005.0,126388.0,Latin America and the Caribbean
+Colombia,2010.0,Colombia,2010.0,27826.0,Latin America and the Caribbean
+Colombia,2015.0,Colombia,2015.0,553835.0,Latin America and the Caribbean
+D. R. Congo,2007.0,D. R. Congo,2007.0,74140.0,Sub-Saharan Africa
+D. R. Congo,2010.0,D. R. Congo,2010.0,93363.0,Sub-Saharan Africa
+D. R. Congo,2013.0,D. R. Congo,2013.0,246151.0,Sub-Saharan Africa
+Dominican Rep.,2002.0,Dominican Rep.,2002.0,111506.0,Latin America and the Caribbean
+Dominican Rep.,2007.0,Dominican Rep.,2007.0,382308.0,Latin America and the Caribbean
+Dominican Rep.,2013.0,Dominican Rep.,2013.0,118425.0,Latin America and the Caribbean
+Dominican Rep.,2014.0,Dominican Rep.,2014.0,250768.0,Latin America and the Caribbean
+Egypt,2000.0,Egypt,2000.0,22767.0,Northern Africa and Western Asia
+Egypt,2005.0,Egypt,2005.0,87079.0,Northern Africa and Western Asia
+Egypt,2008.0,Egypt,2008.0,76752.0,Northern Africa and Western Asia
+Egypt,2014.0,Egypt,2014.0,164600.0,Northern Africa and Western Asia
+Eswatini,2006.0,Eswatini,2006.0,81581.0,Sub-Saharan Africa
+Eswatini,2010.0,Eswatini,2010.0,26536.0,Sub-Saharan Africa
+Eswatini,2014.0,Eswatini,2014.0,20578.0,Sub-Saharan Africa
+Ethiopia,2000.0,Ethiopia,2000.0,78929.0,Sub-Saharan Africa
+Ethiopia,2005.0,Ethiopia,2005.0,137920.0,Sub-Saharan Africa
+Ethiopia,2011.0,Ethiopia,2011.0,250275.0,Sub-Saharan Africa
+Ethiopia,2016.0,Ethiopia,2016.0,103146.0,Sub-Saharan Africa
+Ghana,2003.0,Ghana,2003.0,53228.0,Sub-Saharan Africa
+Ghana,2006.0,Ghana,2006.0,51962.0,Sub-Saharan Africa
+Ghana,2008.0,Ghana,2008.0,89359.0,Sub-Saharan Africa
+Ghana,2011.0,Ghana,2011.0,83781.0,Sub-Saharan Africa
+Ghana,2014.0,Ghana,2014.0,123390.0,Sub-Saharan Africa
+Guyana,2006.0,Guyana,2006.0,39211.0,Latin America and the Caribbean
+Guyana,2009.0,Guyana,2009.0,74536.0,Latin America and the Caribbean
+Guyana,2014.0,Guyana,2014.0,54454.0,Latin America and the Caribbean
+Kazakhstan,2006.0,Kazakhstan,2006.0,65282.0,Central and Southern Asia
+Kazakhstan,2010.0,Kazakhstan,2010.0,153146.0,Central and Southern Asia
+Kazakhstan,2015.0,Kazakhstan,2015.0,155486.0,Central and Southern Asia
+Lesotho,2004.0,Lesotho,2004.0,63438.0,Sub-Saharan Africa
+Lesotho,2009.0,Lesotho,2009.0,83131.0,Sub-Saharan Africa
+Lesotho,2014.0,Lesotho,2014.0,71184.0,Sub-Saharan Africa
+Mongolia,2005.0,Mongolia,2005.0,113618.0,Eastern and South-eastern Asia
+Mongolia,2010.0,Mongolia,2010.0,72546.0,Eastern and South-eastern Asia
+Mongolia,2013.0,Mongolia,2013.0,222491.0,Eastern and South-eastern Asia
+Namibia,2000.0,Namibia,2000.0,61368.0,Sub-Saharan Africa
+Namibia,2007.0,Namibia,2007.0,125853.0,Sub-Saharan Africa
+Namibia,2013.0,Namibia,2013.0,105850.0,Sub-Saharan Africa
+Nepal,2001.0,Nepal,2001.0,44690.0,Central and Southern Asia
+Nepal,2006.0,Nepal,2006.0,59871.0,Central and Southern Asia
+Nepal,2011.0,Nepal,2011.0,71894.0,Central and Southern Asia
+Nepal,2014.0,Nepal,2014.0,73493.0,Central and Southern Asia
+Nigeria,2003.0,Nigeria,2003.0,68095.0,Sub-Saharan Africa
+Nigeria,2007.0,Nigeria,2007.0,143151.0,Sub-Saharan Africa
+Nigeria,2008.0,Nigeria,2008.0,210858.0,Sub-Saharan Africa
+Nigeria,2011.0,Nigeria,2011.0,245294.0,Sub-Saharan Africa
+Nigeria,2013.0,Nigeria,2013.0,560705.0,Sub-Saharan Africa
+Peru,2000.0,Peru,2000.0,53737.0,Latin America and the Caribbean
+Peru,2008.0,Peru,2008.0,225668.0,Latin America and the Caribbean
+Peru,2012.0,Peru,2012.0,132141.0,Latin America and the Caribbean
+Philippines,2003.0,Philippines,2003.0,179725.0,Eastern and South-eastern Asia
+Philippines,2008.0,Philippines,2008.0,50596.0,Eastern and South-eastern Asia
+Philippines,2013.0,Philippines,2013.0,70162.0,Eastern and South-eastern Asia
+Rwanda,2000.0,Rwanda,2000.0,38196.0,Sub-Saharan Africa
+Rwanda,2005.0,Rwanda,2005.0,112131.0,Sub-Saharan Africa
+Rwanda,2010.0,Rwanda,2010.0,138753.0,Sub-Saharan Africa
+Rwanda,2015.0,Rwanda,2015.0,136120.0,Sub-Saharan Africa
+Senegal,2005.0,Senegal,2005.0,63376.0,Sub-Saharan Africa
+Senegal,2011.0,Senegal,2011.0,70408.0,Sub-Saharan Africa
+Senegal,2014.0,Senegal,2014.0,90253.0,Sub-Saharan Africa
+Senegal,2015.0,Senegal,2015.0,43386.0,Sub-Saharan Africa
+Serbia,2005.0,Serbia,2005.0,110588.0,Europe and Northern America
+Serbia,2010.0,Serbia,2010.0,70664.0,Europe and Northern America
+Serbia,2014.0,Serbia,2014.0,71631.0,Europe and Northern America
+Sierra Leone,2005.0,Sierra Leone,2005.0,32362.0,Sub-Saharan Africa
+Sierra Leone,2008.0,Sierra Leone,2008.0,73464.0,Sub-Saharan Africa
+Sierra Leone,2010.0,Sierra Leone,2010.0,49553.0,Sub-Saharan Africa
+Sierra Leone,2013.0,Sierra Leone,2013.0,177607.0,Sub-Saharan Africa
+Togo,2006.0,Togo,2006.0,22180.0,Sub-Saharan Africa
+Togo,2010.0,Togo,2010.0,15714.0,Sub-Saharan Africa
+Togo,2014.0,Togo,2014.0,75882.0,Sub-Saharan Africa
+Viet Nam,2006.0,Viet Nam,2006.0,77039.0,Eastern and South-eastern Asia
+Viet Nam,2010.0,Viet Nam,2010.0,60029.0,Eastern and South-eastern Asia
+Viet Nam,2014.0,Viet Nam,2014.0,103726.0,Eastern and South-eastern Asia

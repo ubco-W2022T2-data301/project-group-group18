@@ -71,6 +71,8 @@ def more_processing(dictionary):
         data_plot2 = pd.concat([data_plot2,plot_values2],join="outer")
         data_plot3 = pd.concat([data_plot3,temp],join="outer")
         data_plot4 = pd.concat([data_plot4,temp],join="outer")
+        
+    data_plot1.to_csv("../data/processed/dataset1_2.csv")
 
         
     return data_plot1, data_plot2, data_plot3, data_plot4

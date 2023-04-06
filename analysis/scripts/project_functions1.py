@@ -54,9 +54,11 @@ def more_processing(dictionary):
     data_plot2 = pd.DataFrame()
     data_plot3 = pd.DataFrame()
     data_plot4 = pd.DataFrame()
+    data_plot5 = pd.DataFrame()
     for i in range(6):
         list(dictionary.values())[i].reset_index(drop = True, inplace = True)
         first_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'min','literacy_rates': 'first',"region_group" : 'first'})
+        first_values_2 = list(dictionary.values())[i].groupby(["region_group"]).agg({"region_group" : 'first','literacy_rates': 'mean'})
         last_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'max','literacy_rates': 'last',"region_group" : 'first'})
         max_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'first','literacy_rates': 'max',"region_group" : 'first'})
         plot_values = first_values[["country"]]
@@ -70,33 +72,39 @@ def more_processing(dictionary):
         data_plot1 = pd.concat([data_plot1,plot_values],join="outer")
         data_plot2 = pd.concat([data_plot2,plot_values2],join="outer")
         data_plot3 = pd.concat([data_plot3,temp],join="outer")
-        data_plot4 = pd.concat([data_plot4,temp],join="outer")
+        data_plot4 = pd.concat([data_plot4,temp2],join="outer")
+        data_plot5 = pd.concat([data_plot5,first_values_2],join="outer")
         
     data_plot1.to_csv("../data/processed/dataset1_2.csv")
     data_plot3.to_csv("../data/processed/dataset1_3.csv")
 
         
-    return data_plot1, data_plot2, data_plot3, data_plot4
+    return data_plot1, data_plot2, data_plot3, data_plot4, data_plot5
 
 #Plots a bar chart of percentage change of literacy rates in each country
 def barplot1(data1,data2):
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
     fig.suptitle("Percentage Change in Literacy Rates Between First and Last/Max Record")
     sns.barplot(ax=axes[0],data = data1, x="percentage change", y="country", width = 1)
+    axes[0].set(title = "Between First and Last")
     axes[0].axvline(color="black");
     sns.barplot(ax=axes[1],data = data2, x="percentage change", y="country", width = 1)
+    axes[1].set(title = "Between First and Max")
     axes[1].axvline(color="black");
-    
     return
 
 #Plots a bar chart of average percentage change in literacy rates of each region
-def barplot2(data1,data2):
-    fig, axes = plt.subplots(1, 2, figsize=(9,5))
-    sns.barplot(ax=axes[0], data = data1, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
-    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Average Percentage Change of Literacy rates of Different Regions");
+def barplot2(data1,data2,data3):
+    plot1 = sns.barplot(data = data3, x="region_group", y="literacy_rates", hue = "region_group",width = 3)
+    plot1.set(xticks=[], title = "Intial Average Literacy Rates", xlabel = "")
+    plt.legend(bbox_to_anchor=[2, 1], loc = "upper right", title = "region group")
+    fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
+    fig.suptitle("Average Percentage Change in Literacy Rates Of Different Regions")
+    sns.barplot(ax=axes[0], data = data1, x="region_group", y="Average percentage change",width = 1)
+    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Last");
     axes[0].axhline(color="black");
-    sns.barplot(ax=axes[1], data = data2, x="region_group", y="Average percentage change", hue = "region_group",width = 1)
-    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Average Percentage Change of Literacy rates of Different Regions");
+    sns.barplot(ax=axes[1], data = data2, x="region_group", y="Average percentage change",width = 1)
+    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Max");
     axes[1].axhline(color="black");
     return
     

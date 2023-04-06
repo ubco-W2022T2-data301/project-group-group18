@@ -16,7 +16,7 @@ def set_data(path):
     return data
 
 
-#make barplot
+#make barplot comparing literacy rate for each region group incremented by income group
 def barplot(dataset):
     plot = (
         sns.barplot(data = dataset, y = dataset["region_group"], hue = dataset["income_group"], x = dataset["literacy_1524_m"], palette = "Set2")
@@ -25,12 +25,14 @@ def barplot(dataset):
     plt.legend(bbox_to_anchor=[2, 1], loc = "upper right")
     return
 
-#make ridgeline plots
+#make ridgeline plots 
 def ridgeline1(dataset):
     plot1 = sns.FacetGrid(dataset, row="Wealth", hue="Wealth", aspect=3.5, height = 1.3, palette = "Set2")
     plot1.map(sns.kdeplot, "comp_upsec_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
     plot1.map(sns.kdeplot, "comp_upsec_v2_m", clip_on=False, color="w", lw=2, bw_adjust=0.5)
     plot1.set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "Literacy Rate")
+    plot1.fig.subplots_adjust(top=0.8)
+    plot1.fig.suptitle("% of People Who Completed Upper Secondary School per Quintiles 1-5 (poorest-richest)")
     return
     
 def ridgeline2(dataset):
@@ -38,6 +40,8 @@ def ridgeline2(dataset):
     plot2.map(sns.kdeplot, "comp_lowsec_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
     plot2.map(sns.kdeplot, "comp_lowsec_v2_m", clip_on=False, color="w", lw=2, bw_adjust=.5)
     plot2.set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "Literacy Rate")
+    plot2.fig.subplots_adjust(top=0.8)
+    plot2.fig.suptitle("% of People Who Completed Lower Secondary School per Quintiles 1-5 (poorest-richest)")
     return
     
 def ridgeline3(dataset):
@@ -45,6 +49,8 @@ def ridgeline3(dataset):
     plot3.map(sns.kdeplot, "comp_prim_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
     plot3.map(sns.kdeplot, "comp_prim_v2_m", clip_on=False, color="w", lw=2, bw_adjust=.5)
     plot3.set(xlabel = "% of People Who Completed Primary School", ylabel = "Literacy Rate")
+    plot3.fig.subplots_adjust(top=0.8)
+    plot3.fig.suptitle("% of People Who Completed Primary School per Quintiles 1-5 (poorest-richest)")
     return
 
 

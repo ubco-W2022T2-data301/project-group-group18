@@ -48,7 +48,12 @@ def lineplot(dictionary):
         grid.fig.suptitle(list(dictionary.keys())[i])
         
     return
-#creates and returns two dataframes, the first being all the countries and the percentage change in literacy rates, and the second being the average change in literacy rates of each region based on the countries in that region
+#creates and returns five dataframes
+#first: the countries and the percentage change in literacy rates between first and last values
+#second: the countries and the percentage change in literacy rates between first and max values
+#third: the average change in literacy rates of each region based on the countries in that region between first and last values
+#fourth:  the average change in literacy rates of each region based on the countries in that region between first and max values
+#fifth: the intial average litracy rates of eac region
 def more_processing(dictionary):
     data_plot1 = pd.DataFrame()
     data_plot2 = pd.DataFrame()
@@ -81,7 +86,7 @@ def more_processing(dictionary):
         
     return data_plot1, data_plot2, data_plot3, data_plot4, data_plot5
 
-#Plots a bar chart of percentage change of literacy rates in each country
+#Plots a bar charts of percentage change of literacy rates in each country
 def barplot1(data1,data2):
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
     fig.suptitle("Percentage Change in Literacy Rates Between First and Last/Max Record")
@@ -93,7 +98,7 @@ def barplot1(data1,data2):
     axes[1].axvline(color="black");
     return
 
-#Plots a bar chart of average percentage change in literacy rates of each region
+#Plots a bar charts of average percentage change in literacy rates of each region and intial average literacy of each region
 def barplot2(data1,data2,data3):
     plot1 = sns.barplot(data = data3, x="region_group", y="literacy_rates", hue = "region_group",width = 1)
     plot1.set(xticks=[], title = "Intial Average Literacy Rates", xlabel = "")

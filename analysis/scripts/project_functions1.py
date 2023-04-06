@@ -95,9 +95,10 @@ def barplot1(data1,data2):
 
 #Plots a bar chart of average percentage change in literacy rates of each region
 def barplot2(data1,data2,data3):
-    plot1 = sns.barplot(data = data3, x="region_group", y="literacy_rates", hue = "region_group",width = 3)
+    plot1 = sns.barplot(data = data3, x="region_group", y="literacy_rates", hue = "region_group",width = 1)
     plot1.set(xticks=[], title = "Intial Average Literacy Rates", xlabel = "")
     plt.legend(bbox_to_anchor=[2, 1], loc = "upper right", title = "region group")
+    
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
     fig.suptitle("Average Percentage Change in Literacy Rates Of Different Regions")
     sns.barplot(ax=axes[0], data = data1, x="region_group", y="Average percentage change",width = 1)

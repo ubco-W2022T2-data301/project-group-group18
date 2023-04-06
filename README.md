@@ -21,9 +21,9 @@ Details for Milestone are available on Canvas (left sidebar, Course Project).
 
 ## Images
 
-<img src ="images/dashboard1_ss.jpg" width="100px">
-<img src ="images/dashboard2.jpg" width="100px">
-<img src ="images/dashboard 3.jpg" width="100px">
+<img src ="images/dashboard1_ss.jpg">
+<img src ="images/dashboard2.png">
+<img src ="images/dashboard 3.png">
 
 ## References
 

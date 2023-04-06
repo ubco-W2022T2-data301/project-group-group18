@@ -50,11 +50,12 @@ def ridgeline3(dataset):
 
 #make boxplots
 def boxplots(dataset):
-    fig, axes = plt.subplots(1, 3, figsize=(19, 5),sharey=True)
+    sns.set(font_scale = 1.5)
+    fig, axes = plt.subplots(1, 3, figsize=(25, 10),sharey=True)
     fig.suptitle('% of People Who Completed Different School Levels Based on Income Groups')
-    plot1 = sns.boxplot(ax=axes[2], data=dataset, x = "comp_upsec_v2_m", y = "income_group", palette = "Set2").set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "")
-    plot2 = sns.boxplot(ax=axes[1], data=dataset, x = "comp_lowsec_v2_m", y = "income_group", palette = "Set2").set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "")
-    plot3 = sns.boxplot(ax=axes[0], data=dataset, x = "comp_prim_v2_m", y = "income_group", palette = "Set2").set(xlabel = "% of People Who Completed Primary School", ylabel = "")
+    plot1 = sns.boxplot(ax=axes[2], data=dataset, x = "comp_upsec_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "")
+    plot2 = sns.boxplot(ax=axes[1], data=dataset, x = "comp_lowsec_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "")
+    plot3 = sns.boxplot(ax=axes[0], data=dataset, x = "comp_prim_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Primary School", ylabel = "")
     return
 
 

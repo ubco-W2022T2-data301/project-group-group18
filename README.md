@@ -1,4 +1,4 @@
-# Group 1 - {Literacy Rates! :)<3}
+# Group 18 - {Literacy Rates! :)<3}
 
 
 ## Milestones
@@ -28,6 +28,7 @@ Details for Milestone are available on Canvas (left sidebar, Course Project).
 ## References
 
 [Dashboard video](https://vimeo.com/815429872)
+<br />
 [Raw Dataset](https://www.education-inequalities.org/indicators/literacy_1524#maxYear=2019&minYear=2014&ageGroup=%22literacy_1524%22&dimension=null)
 
 

@@ -1,6 +1,5 @@
-# Group YY - {Short snappy Title of your project}
+# Group 1 - {Literacy Rates! :)<3}
 
-Literacy Rates! :)<3
 
 ## Milestones
 
@@ -22,13 +21,14 @@ Details for Milestone are available on Canvas (left sidebar, Course Project).
 
 ## Images
 
-{You should use this area to add a screenshot of an interesting plot, or of your dashboard}
-
-<img src ="images/test.png" width="100px">
+<img src ="images/dashboard1_ss.jpg" width="100px">
+<img src ="images/dashboard2.jpg" width="100px">
+<img src ="images/dashboard 3.jpg" width="100px">
 
 ## References
 
-{Add your stuff here}
+[Dashboard video](https://vimeo.com/815429872)
+[Raw Dataset](https://www.education-inequalities.org/indicators/literacy_1524#maxYear=2019&minYear=2014&ageGroup=%22literacy_1524%22&dimension=null)
 
 
 

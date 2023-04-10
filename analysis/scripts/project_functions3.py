@@ -37,7 +37,7 @@ def region(df):
     axes[0].set(ylabel=None,xlabel="Completed primary")
     axes[1].set(ylabel=None,xlabel="Completed lower secondary")
     axes[2].set(ylabel=None,xlabel="Completed upper secondary")
-
+    plt.savefig('../images/1.png',bbox_inches = 'tight')
     plt.show()
     sns.despine(trim=True, left=True)
     
@@ -64,6 +64,7 @@ def plot_religion(df):
     plt.rc('axes', labelsize=16)
     plt.title('Literacy Rate among certain Religions',fontsize=20)
     plt.xlabel("Literacy Rate")
+    plt.savefig('../images/2.png',bbox_inches = 'tight')
     plt.show()
     
 def religion(result_df):
@@ -79,6 +80,7 @@ def religion(result_df):
     plt.rc('axes', labelsize=16)
     plt.title('Literacy Rate among Genders of certain Religions',fontsize=20)
     plt.xlabel("Literacy Rate")
+    plt.savefig('../images/3.png',bbox_inches = 'tight')
     plt.show()
     
 def bar(pivot):
@@ -88,7 +90,7 @@ def bar(pivot):
     ax.set_xlabel("Literacy Rate")
     ax.set_ylabel("Wealth")
     ax.legend(title="Gender")
-    # plt.savefig('plot1.png',bbox_inches = 'tight')
+    plt.savefig('../images/4.png',bbox_inches = 'tight')
     plt.show()
 
 
@@ -124,6 +126,7 @@ def stackedbar(a):
     fig.suptitle("Analysis of Wealth and Literacy Rate over the years")
     # show the plot
     plt.tight_layout()
+    plt.savefig('../images/5.png',bbox_inches = 'tight')
     plt.show()
 
 def style_polar_axis(ax):

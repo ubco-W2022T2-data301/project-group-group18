@@ -18,3 +18,8 @@ When comparing the literacy rates of different religions, some, such Seventh-Day
 #### **What is the effect of wealth on literacy rate among a particular gender?**
 ![](images/4.png)
 ![](images/5.png)
+
+Looking at all these quintiles, which range from the poorest to the richest, it is clear that women often have a lower literacy rate than men. Over the years, for the first three quintiles, the female literacy drops significantly in 2016 as compared to 2014 which seemed to have the high female literacy rate.
+The females literacy rate might be much lower in the quintile 1 and quintile 2 because of societal factors such as the belief the woman should work at home and take care of the household or the idea that women should take up more nurturing roles where education might not be needed. Quintile 4 and Quintile 5 has a higher literacy rate for the women.
+
+## Conclusion

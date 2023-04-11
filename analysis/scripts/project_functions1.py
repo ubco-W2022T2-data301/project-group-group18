@@ -67,13 +67,15 @@ def more_processing(dictionary):
         last_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'max','literacy_rates': 'last',"region_group" : 'first'})
         max_values = list(dictionary.values())[i].groupby(["country"]).agg({'country': 'first','year': 'first','literacy_rates': 'max',"region_group" : 'first'})
         plot_values = first_values[["country"]]
-        plot_values["percentage change"] = (last_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
+        plot_values["change"] = (last_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)
+        plot_values = plot_values.assign(percentage_change = lambda x: x.change*100)
         plot_values.reset_index(drop = True, inplace = True)
         plot_values2 = first_values[["country"]]
-        plot_values2["percentage change"] = (max_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)*100
+        plot_values2["change"] = (max_values.literacy_rates-first_values.literacy_rates)/(first_values.literacy_rates)
+        plot_values2 = plot_values2.assign(percentage_change = lambda x: x.change*100)
         plot_values2.reset_index(drop = True, inplace = True)
-        temp = pd.DataFrame([[list(dictionary.keys())[i],plot_values["percentage change"].mean()]], columns = ["region_group","Average percentage change"])
-        temp2 = pd.DataFrame([[list(dictionary.keys())[i],plot_values2["percentage change"].mean()]], columns = ["region_group","Average percentage change"])
+        temp = pd.DataFrame([[list(dictionary.keys())[i],plot_values["percentage_change"].mean()]], columns = ["region_group","Average percentage change"])
+        temp2 = pd.DataFrame([[list(dictionary.keys())[i],plot_values2["percentage_change"].mean()]], columns = ["region_group","Average percentage change"])
         data_plot1 = pd.concat([data_plot1,plot_values],join="outer")
         data_plot2 = pd.concat([data_plot2,plot_values2],join="outer")
         data_plot3 = pd.concat([data_plot3,temp],join="outer")
@@ -90,10 +92,10 @@ def more_processing(dictionary):
 def barplot1(data1,data2):
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
     fig.suptitle("Percentage Change in Literacy Rates Between First and Last/Max Record")
-    sns.barplot(ax=axes[0],data = data1, x="percentage change", y="country", width = 1)
+    sns.barplot(ax=axes[0],data = data1, x="percentage_change", y="country", width = 1)
     axes[0].set(title = "Between First and Last")
     axes[0].axvline(color="black");
-    sns.barplot(ax=axes[1],data = data2, x="percentage change", y="country", width = 1)
+    sns.barplot(ax=axes[1],data = data2, x="percentage_change", y="country", width = 1)
     axes[1].set(title = "Between First and Max")
     axes[1].axvline(color="black");
     return

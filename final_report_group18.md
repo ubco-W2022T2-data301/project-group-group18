@@ -67,6 +67,7 @@ The graph depicts that the majority of the countries have seen a positive change
 The graphs visualize that regions that value literacy more have not changed. Latin America and the Caribbean have seen the largest positive increase. Central and Southern Asian countries would have also seen a similar increase if it was not for external factors affecting countries and making literacy rates decrease after their peak. Other regions have seen a positive increase but it is nowhere as close to the leaders. This proves that while they may value education more, the ratio of how much each region cares about literacy is still the same.
 
 ## Conclusion
+In conclusion, exploring the trends in literacy rates has highlighted the presence of a gender gap in literacy rates across the world. Although the gap is not wide in some regions, men tend to have higher literacy rates. Additionally, wealth plays a significant role in determining literacy rates, with higher-income countries having higher literacy rates than lower-income countries. Furthermore, education levels vary across income groups and genders, with higher-income countries generally having a higher percentage of people completing all levels of education. Lastly, there is a correlation between location and literacy rates, with lower-income countries having a lower literacy rate than higher-income countries. By analysing these factors, we can better understand the importance of education and how society values it, ultimately leading to the creation of more equitable solutions.
 
 <u> **Links**:</u>
 

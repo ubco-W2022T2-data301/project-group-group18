@@ -12,7 +12,7 @@ def set_data(path):
         .reset_index()
         .assign(Completed_UpSec = lambda data: data.comp_upsec_v2_m*100)
         .assign(Completed_LowSec = lambda data : data.comp_lowsec_v2_m*100)
-        .assign(Completed_Prim = lambda data : data.comp_lowsec_v2_m*100)
+        .assign(Completed_Prim = lambda data : data.comp_prim_v2_m*100)
         .drop(columns = ["index", "comp_upsec_v2_m", "comp_lowsec_v2_m", "comp_prim_v2_m"])
     )
     data.to_csv("../data/processed/data2.csv")
@@ -25,7 +25,7 @@ def barplot(dataset):
         sns.barplot(data = dataset, y = dataset["region_group"], hue = dataset["income_group"], x = dataset["literacy_1524_m"], palette = "Set2")
     .set( title = "Literacy Rates compared to Income Groups", xlabel = "Literacy Rates Ages 15-24", ylabel = "")
     )
-    plt.legend(bbox_to_anchor=[2, 1], loc = "upper right")
+    plt.legend(bbox_to_anchor=[1.75, 1], loc = "upper right")
     return
 
 #make ridgeline plots 

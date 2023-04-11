@@ -10,7 +10,10 @@ def set_data(path):
         .loc[:,["income_group","region_group","literacy_1524_m", "Sex","Location","Wealth","comp_upsec_v2_m", "comp_prim_v2_m", "comp_lowsec_v2_m","year"]]
         .dropna(subset="literacy_1524_m")
         .reset_index()
-        .drop(columns = ["index"])
+        .assign(Completed_UpSec = lambda data: data.comp_upsec_v2_m*100)
+        .assign(Completed_LowSec = lambda data : data.comp_lowsec_v2_m*100)
+        .assign(Completed_Prim = lambda data : data.comp_lowsec_v2_m*100)
+        .drop(columns = ["index", "comp_upsec_v2_m", "comp_lowsec_v2_m", "comp_prim_v2_m"])
     )
     data.to_csv("../data/processed/data2.csv")
     return data
@@ -28,8 +31,8 @@ def barplot(dataset):
 #make ridgeline plots 
 def ridgeline1(dataset):
     plot1 = sns.FacetGrid(dataset, row="Wealth", hue="Wealth", aspect=3.5, height = 1.3, palette = "Set2")
-    plot1.map(sns.kdeplot, "comp_upsec_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
-    plot1.map(sns.kdeplot, "comp_upsec_v2_m", clip_on=False, color="w", lw=2, bw_adjust=0.5)
+    plot1.map(sns.kdeplot, "Completed_UpSec", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
+    plot1.map(sns.kdeplot, "Completed_UpSec", clip_on=False, color="w", lw=2, bw_adjust=0.5)
     plot1.set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "Literacy Rate")
     plot1.fig.subplots_adjust(top=0.8)
     plot1.fig.suptitle("% of People Who Completed Upper Secondary School per Quintiles 1-5 (poorest-richest)")
@@ -37,8 +40,8 @@ def ridgeline1(dataset):
     
 def ridgeline2(dataset):
     plot2 = sns.FacetGrid(dataset, row="Wealth", hue="Wealth", aspect=3.5, height = 1.3, palette = "Set2")
-    plot2.map(sns.kdeplot, "comp_lowsec_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
-    plot2.map(sns.kdeplot, "comp_lowsec_v2_m", clip_on=False, color="w", lw=2, bw_adjust=.5)
+    plot2.map(sns.kdeplot, "Completed_LowSec", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
+    plot2.map(sns.kdeplot, "Completed_LowSec", clip_on=False, color="w", lw=2, bw_adjust=.5)
     plot2.set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "Literacy Rate")
     plot2.fig.subplots_adjust(top=0.8)
     plot2.fig.suptitle("% of People Who Completed Lower Secondary School per Quintiles 1-5 (poorest-richest)")
@@ -46,8 +49,8 @@ def ridgeline2(dataset):
     
 def ridgeline3(dataset):
     plot3 = sns.FacetGrid(dataset, row="Wealth", hue="Wealth", aspect=3, height = 1.3, palette = "Set2")
-    plot3.map(sns.kdeplot, "comp_prim_v2_m", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
-    plot3.map(sns.kdeplot, "comp_prim_v2_m", clip_on=False, color="w", lw=2, bw_adjust=.5)
+    plot3.map(sns.kdeplot, "Completed_Prim", bw_adjust=.5, clip_on=False, fill=True, alpha=1, linewidth=.75)
+    plot3.map(sns.kdeplot, "Completed_Prim", clip_on=False, color="w", lw=2, bw_adjust=.5)
     plot3.set(xlabel = "% of People Who Completed Primary School", ylabel = "Literacy Rate")
     plot3.fig.subplots_adjust(top=0.8)
     plot3.fig.suptitle("% of People Who Completed Primary School per Quintiles 1-5 (poorest-richest)")
@@ -59,9 +62,9 @@ def boxplots(dataset):
     sns.set(font_scale = 1.5)
     fig, axes = plt.subplots(1, 3, figsize=(25, 10),sharey=True)
     fig.suptitle('% of People Who Completed Different School Levels Based on Income Groups')
-    plot1 = sns.boxplot(ax=axes[2], data=dataset, x = "comp_upsec_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "")
-    plot2 = sns.boxplot(ax=axes[1], data=dataset, x = "comp_lowsec_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "")
-    plot3 = sns.boxplot(ax=axes[0], data=dataset, x = "comp_prim_v2_m", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Primary School", ylabel = "")
+    plot1 = sns.boxplot(ax=axes[2], data=dataset, x = "Completed_UpSec", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "")
+    plot2 = sns.boxplot(ax=axes[1], data=dataset, x = "Completed_LowSec", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "")
+    plot3 = sns.boxplot(ax=axes[0], data=dataset, x = "Completed_Prim", y = "income_group", hue = "Sex", palette = "Set2").set(xlabel = "% of People Who Completed Primary School", ylabel = "")
     return
 
 

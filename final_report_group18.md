@@ -1,4 +1,7 @@
 # **Literacy Rates**
+
+Society as a whole has a general agenda: development. While an array of factors can be considered while measuring development, literacy can be regarded as a key factor. Thus, we have chosen to explore this dataset and analyze historical trends in literacy rates. We try to understand and bring transparency to the importance of education and how society values education. Furthermore, by identifying issues apropos existing social constructs for the value of education, society can work together to dismantle these issues and create an equitable solution.
+
 ## Exploratory Data Analysis
 
 
@@ -33,19 +36,35 @@ To answer my question, I will be comparing four different income groups, low-inc
 
 This plot analyzes the literacy rates based on different income groups in different regions of the world. Using this plot, we can notice that there is a common trend between each region, the lower-income countries have a significantly lower literacy rate than the higher-income countries. In fact, the higher-income countries were close to having a 100% literacy rate in most regions. On the other hand, low-income countries had an average of a 60% literacy rate throughout the regions. Because the higher-income countries had a much higher literacy rate, we can conclude that wealth does impact the literacy rate throughout the world.
 
-
-
 #### How does the education level change when compared to income groups based on sex?
 ![](images/analysis2_plot2.png)
 
 These plots compare the percentage of people who completed a certain educational level per income group based on sex. The plot on the left explores the percentage of people who completed primary school. We discover that throughout most of the income levels, on average, 80+% of people completed primary school. However, in low-income countries, the average was only 40%. In the middle graph, we discover that the average percentage of people who completed lower secondary school is lower than that of primary school. This is especially true in middle-income countries as high-income countries still have a relatively high completion rate. In the graph on the left, we notice that the average percentage of people who completed upper secondary school significantly dropped in every income group when compared to previous education levels. The higher-income countries continue to have a higher completion rate, however, it is only at around 50%. In middle-income countries, females have a higher average completion rate than males.
-
 
 #### How does the literacy rate change across different income groups based on sex? 
 ![](images/analysis2_plot3.png)
 
 This plot compares the literacy rate across different income groups based on sex. We notice that throughout every income group, males had higher literacy rates than women. Only low-income countries did not have an almost 100% literacy rate for males. The higher the income, the higher the literacy rate. 
 
+
+## Is there a correlation between location and literacy rates?
+
+I attempt to answer this question using various bar and line graphs to see if preconceived notions regaring literacy rates exist in specific regions across the globe and if they have changed positively or negatively.
+
+#### Do specific region groups have a preconceived opinion about the value of literacy?
+![](images/a1_p1.jpg)
+
+This graph compares average literacy rates across various region groups. As observed by the graph, it is clear that there exist preconceived notions regarding the importance of education in some regions across the globe. Central and Southern Asia has the largest average literacy rates which shows countries in that region value education more compared to countries part of the Northern African and Western Asian region for example. 
+
+#### Have individual countries seen drastic changes in literacy rates?
+![](images/a1_p2.jpg)
+
+The graph depicts that the majority of the countries have seen a positive change in literacy rates with there being a few exceptions. While there are no drastic changes in any country except Columbia, it is fair to assume that Bangladesh would also have had a drastic increase if it was not for internal issues within the country that led to a decline in literacy rates after a peak. Furthermore, countries like Egypt, Cambodia, and Nigeria have seen a large increase also but since they have no correlation with respect to the geographic location it is hard to say there is an association between literacy rates and region groups.
+
+#### Has there been a change in how regions value literacy?
+![](images/a1_p3.jpg)
+
+The graphs visualize that regions that value literacy more have not changed. Latin America and the Caribbean have seen the largest positive increase. Central and Southern Asian countries would have also seen a similar increase if it was not for external factors affecting countries and making literacy rates decrease after their peak. Other regions have seen a positive increase but it is nowhere as close to the leaders. This proves that while they may value education more, the ratio of how much each region cares about literacy is still the same.
 
 ## Conclusion
 
@@ -54,5 +73,8 @@ This plot compares the literacy rate across different income groups based on sex
 You can find the full analysis for gender and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis3.ipynb).
 If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_functions3.py).
 
-Full analysis for income groups and literacy rates [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis2.ipynb)
-Code for analysis 2 [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function2.py)
+You can find the full analysis for wealth and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis2.ipynb)
+If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function2.py)
+
+You can find the full analysis for location and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis1.ipynb)
+If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function1.py)

@@ -36,6 +36,7 @@ def ridgeline1(dataset):
     plot1.set(xlabel = "% of People Who Completed Upper Secondary School", ylabel = "Literacy Rate")
     plot1.fig.subplots_adjust(top=0.8)
     plot1.fig.suptitle("% of People Who Completed Upper Secondary School per Quintiles 1-5 (poorest-richest)")
+    plot1.fig.savefig("../images/an2_1.png",bbox_inches='tight')
     return
     
 def ridgeline2(dataset):
@@ -45,6 +46,7 @@ def ridgeline2(dataset):
     plot2.set(xlabel = "% of People Who Completed Lower Secondary School", ylabel = "Literacy Rate")
     plot2.fig.subplots_adjust(top=0.8)
     plot2.fig.suptitle("% of People Who Completed Lower Secondary School per Quintiles 1-5 (poorest-richest)")
+    plot2.fig.savefig("../images/an2_2.png",bbox_inches='tight')
     return
     
 def ridgeline3(dataset):
@@ -54,6 +56,7 @@ def ridgeline3(dataset):
     plot3.set(xlabel = "% of People Who Completed Primary School", ylabel = "Literacy Rate")
     plot3.fig.subplots_adjust(top=0.8)
     plot3.fig.suptitle("% of People Who Completed Primary School per Quintiles 1-5 (poorest-richest)")
+    plot3.fig.savefig("../images/an2_3.png",bbox_inches='tight')
     return
 
 

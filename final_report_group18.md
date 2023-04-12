@@ -1,9 +1,9 @@
 # **Literacy Rates**
 
-Society as a whole has a general agenda: development. While an array of factors can be considered while measuring development, literacy can be regarded as a key factor. Thus, we have chosen to explore this dataset and analyze historical trends in literacy rates. We try to understand and bring transparency to the importance of education and how society values education. Furthermore, by identifying issues apropos existing social constructs for the value of education, society can work together to dismantle these issues and create an equitable solution.
+Society as a whole has a general agenda: development. While numerous factors can be considered while measuring development, literacy stands out as a key factor. Thus, we have chosen to explore this dataset and analyze historical trends in literacy rates. We try to understand and bring transparency to the importance of education in society. Furthermore, by identifying issues apropos existing social constructs for the value of education, society can work together to dismantle these issues and create an equitable solution.
 
 ## Exploratory Data Analysis
-
+Exploratory Data Analysis is a scientific process which analyzes data. This is especially done using different visualisation methods such as graphs. We have all constructed different graphs in order to analyze certain characteristics for our data. In order to get the most accurate analyzes, we chose graphs that would highlight key information in the data. This allows us to understand how our data is related to each other which is essential for making conclusions about the data.  
 
 ## How has the gender gap in literacy changed?
 To evaluate if there is a gender gap when it comes to literacy rates, the analysis was done using factors that are known to affect literacy rates such as wealth, religion, and the levels of education completed. These factors were answered using subquestions.
@@ -74,8 +74,8 @@ In conclusion, exploring the trends in literacy rates has highlighted the presen
 You can find the full analysis for gender and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis3.ipynb).
 If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_functions3.py).
 
-You can find the full analysis for wealth and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis2.ipynb)
-If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function2.py)
+You can find the full analysis for wealth and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis2.ipynb).
+If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function2.py).
 
-You can find the full analysis for location and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis1.ipynb)
-If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function1.py)
+You can find the full analysis for location and literacy rates notebook [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/analysis1.ipynb).
+If you want the code for the graphs, click [here](https://github.com/ubco-W2022T2-data301/project-group-group18/blob/main/analysis/scripts/project_function1.py).

@@ -3,7 +3,9 @@
 Society as a whole has a general agenda: development. While numerous factors can be considered while measuring development, literacy stands out as a key factor. Thus, we have chosen to explore this dataset and analyze historical trends in literacy rates. We try to understand and bring transparency to the importance of education in society. Furthermore, by identifying issues apropos existing social constructs for the value of education, society can work together to dismantle these issues and create an equitable solution.
 
 ## Exploratory Data Analysis
-Exploratory Data Analysis is a scientific process which analyzes data. This is especially done using different visualisation methods such as graphs. We have all constructed different graphs in order to analyze certain characteristics for our data. In order to get the most accurate analyzes, we chose graphs that would highlight key information in the data. This allows us to understand how our data is related to each other which is essential for making conclusions about the data.  
+Exploratory Data Analysis is a scientific process which analyzes data. This is especially done using different visualisation methods such as graphs. We have all constructed different graphs in order to analyze certain characteristics for our data. In order to get the most accurate analyzes, we chose graphs that would highlight key information in the data. This allows us to understand how our data is related to each other which is essential for making conclusions about the data. 
+
+Our data mainly consists of factors that are known to affect literacy rates such as wealth, region, gender, ethnicity and location. Also, it consists of different measures of literacy rates such as those who completed primary, lower secondary, and upper secondary and overall mean literacy rate.
 
 ## How has the gender gap in literacy changed?
 To evaluate if there is a gender gap when it comes to literacy rates, the analysis was done using factors that are known to affect literacy rates such as wealth, religion, and the levels of education completed. These factors were answered using subquestions.
@@ -13,7 +15,6 @@ To evaluate if there is a gender gap when it comes to literacy rates, the analys
 This graph was analysing the literacy rate based on the completion of school. In this graph, we were able to analyse the spread of data and the common percentage of those who completed each level of education. It was split according to gender to determine if there was gap in the attendance of a certain gender. The conclusion when it came to this was that there were no wide gaps in certain regions. However, the attendance of females dropped in certain regions such as Central and Southern Asia, Sub-Saharan Africa.
 
 #### **Does religion play a role in the literacy rate? Is there a particular gender that is more educated?**
-![](images/2.png)
 ![](images/3.png)
 
 When comparing the literacy rates of different religions, some, such Seventh-Day Adventists, Zionists, Christians, etc., come into the category of having a high literacy rate. While the literacy rates of some religions vary greatly, the majority of them, like Traditional/Animist, lie within the lower range. In accordance with the plot, there are discrepancies in the rates of literacy for men and women according to various religions. Our statistics on Muslims, for example, show that while female literacy rates varied from 0% to 100%, a larger percentage of Muslim women fell between the ranges of 80% and 100%. The literacy rate among Muslim men ranged from 60% to 80%. The aforementioned plot leads us to the conclusion that it is impossible to determine for sure if there are factors that cause religion to have a direct impact on the literacy rate.

@@ -6,7 +6,7 @@ import seaborn as sns
 pd.options.mode.chained_assignment = None 
 sns.set_theme(style="ticks", font_scale=0.8)
 
-def distribution(url):
+def data_processing2(url):
     data = (
         pd.read_csv(url,low_memory=False)
         .loc[:, ["region_group","country","year","Location","literacy_1524_m"]]
@@ -15,8 +15,20 @@ def distribution(url):
         .drop(columns = ["index"])
     )
     
-    plot = sns.violinplot(data=data, x = "year", y="literacy_1524_m", hue = "region_group", inner = "quart", linewidth = 1, palette = "Set2")
-    plot = sns.despline(left=True)
+    return data
+
+def distribution1(data):
+    plot = sns.kdeplot(data=data, x="literacy_1524_m", hue = "region_group", palette = "Set2",fill = True)
+    legend = plot.get_legend()
+    legend.set_title("Region Group")
+    legend.set_bbox_to_anchor((1.5, 1))
+    plot.set(title = "Distribution Of Literacy Rates In Different Regions", xlabel = "");
+    return
+
+def distribution2(data):
+    plot = sns.violinplot(data=data, y="region_group", x="literacy_1524_m", hue="Location",split=True, inner="quart", linewidth=1,palette = "Set2");
+    plot.set(title = "Distribution Of Literacy Rates in Each Region Group based on Urbanity", xlabel = "Literacy Rate", ylabel = "Region Group");
+    return;
 
 #Basic data processing to only select required columns from dataset, drop NA values and reset index
 def data_processing(url):

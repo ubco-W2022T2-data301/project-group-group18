@@ -6,6 +6,18 @@ import seaborn as sns
 pd.options.mode.chained_assignment = None 
 sns.set_theme(style="ticks", font_scale=0.8)
 
+def distribution(url):
+    data = (
+        pd.read_csv(url,low_memory=False)
+        .loc[:, ["region_group","country","year","Location","literacy_1524_m"]]
+        .dropna(subset="literacy_1524_m")
+        .reset_index()
+        .drop(columns = ["index"])
+    )
+    
+    plot = sns.violinplot(data=data, x = "year", y="literacy_1524_m", hue = "region_group", inner = "quart", linewidth = 1, palette = "Set2")
+    plot = sns.despline(left=True)
+
 #Basic data processing to only select required columns from dataset, drop NA values and reset index
 def data_processing(url):
     data = (
@@ -91,12 +103,12 @@ def more_processing(dictionary):
 #Plots a bar charts of percentage change of literacy rates in each country
 def barplot1(data1,data2):
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
-    fig.suptitle("Percentage Change in Literacy Rates Between First and Last/Max Record")
+    fig.suptitle("Percentage Change in Literacy Rates")
     sns.barplot(ax=axes[0],data = data1, x="percentage_change", y="country", width = 1)
-    axes[0].set(title = "Between First and Last")
+    axes[0].set(title = "Between First and Last Literacy rate recorded")
     axes[0].axvline(color="black");
     sns.barplot(ax=axes[1],data = data2, x="percentage_change", y="country", width = 1)
-    axes[1].set(title = "Between First and Max")
+    axes[1].set(title = "Between First and Maximum Literacy rate recorded")
     axes[1].axvline(color="black");
     return
 
@@ -107,12 +119,12 @@ def barplot2(data1,data2,data3):
     plt.legend(bbox_to_anchor=[2, 1], loc = "upper right", title = "region group")
     
     fig, axes = plt.subplots(1, 2, figsize=(9,5), sharey = True)
-    fig.suptitle("Average Percentage Change in Literacy Rates Of Different Regions")
+    fig.suptitle("Percentage Change in Literacy Rates With Respect to Region Group")
     sns.barplot(ax=axes[0], data = data1, x="region_group", y="Average percentage change",width = 1)
-    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Last");
+    axes[0].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Last Literacy rate recorded");
     axes[0].axhline(color="black");
     sns.barplot(ax=axes[1], data = data2, x="region_group", y="Average percentage change",width = 1)
-    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Max");
+    axes[1].set(xticks=[], xlabel="", yticks=np.arange(-100,1000,50), ylabel="Percentage Change", title = "Between First and Maximum Literacy rate recorded");
     axes[1].axhline(color="black");
     return
     
